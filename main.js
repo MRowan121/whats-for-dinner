@@ -55,9 +55,13 @@ var foodButton = document.querySelector('.lets-cook-btn')
 var cookpotImg = document.querySelector(".cookpot-img")
 var randomFood = document.querySelector(".random-meal")
 var clearContent = document.querySelector('.clear-btn');
+var addRecipe = document.getElementById('header-btn')
+var newRecipeForm = document.querySelector('.footer')
+var displayNewRecipe = document.querySelector('add-recipe-btn')
 
 foodButton.addEventListener("click", displayRandomFood);
 clearContent.addEventListener("click",showImage);
+addRecipe.addEventListener("click", showNewRecipeForm);
 
 function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length)
@@ -86,4 +90,8 @@ function displayRandomFood() {
 function showImage() {
     cookpotImg.classList.toggle("hidden");
     randomFood.classList.toggle("hidden");
+};
+
+function showNewRecipeForm() {
+    newRecipeForm.classList.toggle("hidden");
 };
