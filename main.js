@@ -73,6 +73,7 @@ function hideImage() {
 function displayRandomFood() {
     for(var i = 0; i < foodChoice.length; i++) {
         if(foodChoice[i].checked && foodChoice[i].id === "entire-meal") {
+            hideImage()
             foodName.innerText = `${mains[getRandomIndex(mains)]} with a side of ${sides[getRandomIndex(sides)]} and ${desserts[getRandomIndex(desserts)]} for dessert!`;
         } else if(foodChoice[i].checked && foodChoice[i].id !== "entire-meal") {
             hideImage()
