@@ -39,9 +39,14 @@
     </section>
     <footer class="footer hidden">
       <form>
-        Recipe Type: <input type="text" class="resizedTextBox" id="recipe-type">
-        Recipe Name: <input type="text" class="resizedTextBox" id="recipe-name">
-        <button class="resizedTextBox" id="add-recipe-btn">ADD NEW</button>
+        Recipe Type: <input type="text" class="resizedTextBox" id="new-recipe-type" list="meal-types">
+        Recipe Name: <input type="text" class="resizedTextBox" id="new-recipe-name">
+        <button class="resizedTextBox" id="new-recipe-btn">ADD NEW</button>
+        <datalist id="meal-types">
+          <option value="Side">
+          <option value="Main Dish">
+          <option value="Dessert">
+        </datalist>
       </form>
     </footer>
   </body>
