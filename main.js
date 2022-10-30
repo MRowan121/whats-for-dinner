@@ -1,3 +1,4 @@
+/* ~~~~~ MEAL ARRAYS ~~~~~ */ 
 var sides = [
     'Caeser Salad',
     'Coconut Rice',
@@ -48,42 +49,64 @@ var desserts = [
     'Tart Tatin'
 ];
 
+/* ~~~~~ VARIABLES/QUERY SELECTORS ~~~~~ */ 
 var mealType;
 var newMealType;
-var foodChoice = document.getElementsByName("lets-cook-radio");
-var foodName = document.querySelector(".food-name")
-var foodButton = document.querySelector('.lets-cook-btn')
-var cookpotImg = document.querySelector(".cookpot-img")
-var randomFood = document.querySelector(".random-meal")
+var addRecipe = document.getElementById('header-btn');
+var foodChoice = document.getElementsByName('lets-cook-radio');
+var foodButton = document.querySelector('.lets-cook-btn');
+var cookpotImg = document.querySelector('.cookpot-img');
+var randomFood = document.querySelector('.random-meal');
+var foodName = document.querySelector('.food-name');
 var clearContent = document.querySelector('.clear-btn');
-var addRecipe = document.getElementById('header-btn')
-var newRecipeForm = document.querySelector('.footer')
-var newRecipeBtn = document.getElementById('new-recipe-btn')
-var newRecipeType = document.getElementById('new-recipe-type')
-var newRecipeName = document.getElementById('new-recipe-name')
+var newRecipeForm = document.querySelector('.footer');
+var newRecipeType = document.getElementById('new-recipe-type');
+var newRecipeName = document.getElementById('new-recipe-name');
+var newRecipeBtn = document.getElementById('new-recipe-btn');
 
-foodButton.addEventListener("click", displayRandomFood);
-clearContent.addEventListener("click",showImage);
-addRecipe.addEventListener("click", showNewRecipeForm);
-newRecipeBtn.addEventListener("click", displayCustomFood);
+/* ~~~~~ EVENT LISTENERS ~~~~~ */ 
+foodButton.addEventListener('click', displayRandomFood);
+clearContent.addEventListener('click',showImage);
+addRecipe.addEventListener('click', showNewRecipeForm);
+newRecipeBtn.addEventListener('click', displayCustomFood);
 
+/* ~~~~~ FUNCTIONS ~~~~~ */ 
 function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length)
 };
 
 function hideImage() {
     if(randomFood.classList.contains('hidden')) {
-        cookpotImg.classList.toggle("hidden");
-        randomFood.classList.toggle("hidden");
+        cookpotImg.classList.toggle('hidden');
+        randomFood.classList.toggle('hidden');
+    };
+};
+
+function showImage() {
+    cookpotImg.classList.toggle('hidden');
+    randomFood.classList.toggle('hidden');
+};
+
+function showNewRecipeForm() {
+    newRecipeForm.classList.toggle('hidden');
+};
+
+function pushNewFood() {
+    if(newRecipeType.value === 'Side') {
+        sides.push(newRecipeName.value);
+    } else if(newRecipeType.value === 'Main Dish') {
+        mains.push(newRecipeName.value);
+    } else if(newRecipeType.value === 'Dessert') {
+        desserts.push(newRecipeName.value);
     };
 };
 
 function displayRandomFood() {
     for(var i = 0; i < foodChoice.length; i++) {
-        if(foodChoice[i].checked && foodChoice[i].id === "entire-meal") {
+        if(foodChoice[i].checked && foodChoice[i].id === 'entire-meal') {
             hideImage()
             foodName.innerText = `${mains[getRandomIndex(mains)]} with a side of ${sides[getRandomIndex(sides)]} and ${desserts[getRandomIndex(desserts)]} for dessert!`;
-        } else if(foodChoice[i].checked && foodChoice[i].id !== "entire-meal") {
+        } else if(foodChoice[i].checked && foodChoice[i].id !== 'entire-meal') {
             hideImage()
             mealType = eval(foodChoice[i].id)
             foodName.innerText = mealType[getRandomIndex(mealType)]+'!'
@@ -91,29 +114,9 @@ function displayRandomFood() {
     };
 };
 
-function showImage() {
-    cookpotImg.classList.toggle("hidden");
-    randomFood.classList.toggle("hidden");
-};
-
-function showNewRecipeForm() {
-    newRecipeForm.classList.toggle("hidden");
-};
-
-function pushNewFood() {
-    if(newRecipeType.value === 'Side') {
-        sides.push(newRecipeName.value)
-    } else if(newRecipeType.value === 'Main Dish') {
-        mains.push(newRecipeName.value)
-    } else if(newRecipeType.value === 'Dessert') {
-        desserts.push(newRecipeName.value)
-    }
-};
-
 function displayCustomFood() {
     hideImage();
     showNewRecipeForm();
     pushNewFood();
     foodName.innerText = newRecipeName.value +'!';
-}
-
+};
