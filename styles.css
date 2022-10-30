@@ -1,13 +1,3 @@
-/* font-family: 'Roboto', sans-serif;
-
-COLORS
-teal - #0fb9b1;
-frosted white - rgba(225, 225, 225, .9);
-grey - #95a5a6;
-red - #ee5253
-
-*/
-
 /* ~~~~~ GLOBAL RULES ~~~~~ */
 html {
     background-image: url("assets/burger-friends.jpg");
@@ -22,7 +12,6 @@ body {
 }
 
 /* ~~~~~ HEADER RULES ~~~~~ */
-
 header {
     background-color: #0fb9b1;
     display: flex;
@@ -36,7 +25,8 @@ header {
     width: 100%;
 }
 #header-title {
-    margin: 15px 20px;
+    font-size: x-large;
+    margin: 12px 20px;
 }
 #header-btn {
     background-color: rgba(225, 225, 225, .9);
@@ -52,7 +42,6 @@ header {
 }
 
 /* ~~~~~ SECTION/BOX RULES ~~~~~ */  
-
 section {
     align-items: center;
     display: flex;
@@ -71,7 +60,6 @@ section {
 }
 
 /* ~~~~~ FORM RULES ~~~~~ */ 
-
 #lets-cook-form {
     align-items: center;
     font-size: larger;
@@ -90,7 +78,7 @@ sup {
     background-color: #0fb9b1;
     border: none;
     border-radius: 5px;
-    font-size: inherit;
+    font-size: large;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 10px;
@@ -98,7 +86,6 @@ sup {
 }
 
 /* ~~~~~ PIC/FOOD RULES ~~~~~ */ 
-
 .cookpot-img {
     height: 200px;
     margin: auto;
@@ -135,7 +122,6 @@ p {
 }
 
 /* ~~~~~ ADD RECIPE FORM RULES ~~~~~ */ 
-
 .footer {
     align-items: center;
     background-color: rgba(225, 225, 225, .9);
