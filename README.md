@@ -21,7 +21,7 @@ This application will allow the user to generate a random side, main dish, desse
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
-![Example Screenshot](file:///Users/mattrowan/Turing/mod1/whats-for-dinner/index.html)
+<img width="1440" alt="Whats for dinner screenshot" src="https://user-images.githubusercontent.com/110955503/198907186-a408b4e0-5e04-45dc-a4f6-6b33e658aac7.png">
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
