@@ -156,6 +156,7 @@ p {
 .resizedTextBox {
     height: 30px;
     font-size: x-large;
+    width: 150px;
 }
 
 #recipe-type {
