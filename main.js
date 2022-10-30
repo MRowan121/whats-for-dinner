@@ -49,15 +49,23 @@ var desserts = [
 ];
 
 var mealType;
+var newMealType;
 var foodChoice = document.getElementsByName("lets-cook-radio");
 var foodName = document.querySelector(".food-name")
 var foodButton = document.querySelector('.lets-cook-btn')
 var cookpotImg = document.querySelector(".cookpot-img")
 var randomFood = document.querySelector(".random-meal")
 var clearContent = document.querySelector('.clear-btn');
+var addRecipe = document.getElementById('header-btn')
+var newRecipeForm = document.querySelector('.footer')
+var newRecipeBtn = document.getElementById('new-recipe-btn')
+var newRecipeType = document.getElementById('new-recipe-type')
+var newRecipeName = document.getElementById('new-recipe-name')
 
 foodButton.addEventListener("click", displayRandomFood);
 clearContent.addEventListener("click",showImage);
+addRecipe.addEventListener("click", showNewRecipeForm);
+newRecipeBtn.addEventListener("click", displayCustomFood);
 
 function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length)
@@ -87,3 +95,25 @@ function showImage() {
     cookpotImg.classList.toggle("hidden");
     randomFood.classList.toggle("hidden");
 };
+
+function showNewRecipeForm() {
+    newRecipeForm.classList.toggle("hidden");
+};
+
+function pushNewFood() {
+    if(newRecipeType.value === 'Side') {
+        sides.push(newRecipeName.value)
+    } else if(newRecipeType.value === 'Main Dish') {
+        mains.push(newRecipeName.value)
+    } else if(newRecipeType.value === 'Dessert') {
+        desserts.push(newRecipeName.value)
+    }
+};
+
+function displayCustomFood() {
+    hideImage();
+    showNewRecipeForm();
+    pushNewFood();
+    foodName.innerText = newRecipeName.value +'!';
+}
+

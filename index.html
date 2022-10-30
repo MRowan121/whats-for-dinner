@@ -37,6 +37,18 @@
         </article>
       </div>  
     </section>
+    <footer class="footer hidden">
+      <form>
+        Recipe Type: <input type="text" class="resizedTextBox" id="new-recipe-type" list="meal-types">
+        Recipe Name: <input type="text" class="resizedTextBox" id="new-recipe-name">
+        <button type="button" class="resizedTextBox" id="new-recipe-btn">ADD NEW</button>
+        <datalist id="meal-types">
+          <option value="Side">
+          <option value="Main Dish">
+          <option value="Dessert">
+        </datalist>
+      </form>
+    </footer>
   </body>
   <script type="text/javascript" src="main.js"></script>
 </html>
