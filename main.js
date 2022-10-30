@@ -52,17 +52,17 @@ var desserts = [
 /* ~~~~~ VARIABLES/QUERY SELECTORS ~~~~~ */ 
 var mealType;
 var newMealType;
+var addRecipe = document.getElementById('header-btn');
 var foodChoice = document.getElementsByName('lets-cook-radio');
-var foodName = document.querySelector('.food-name');
 var foodButton = document.querySelector('.lets-cook-btn');
 var cookpotImg = document.querySelector('.cookpot-img');
 var randomFood = document.querySelector('.random-meal');
+var foodName = document.querySelector('.food-name');
 var clearContent = document.querySelector('.clear-btn');
-var addRecipe = document.getElementById('header-btn');
 var newRecipeForm = document.querySelector('.footer');
-var newRecipeBtn = document.getElementById('new-recipe-btn');
 var newRecipeType = document.getElementById('new-recipe-type');
 var newRecipeName = document.getElementById('new-recipe-name');
+var newRecipeBtn = document.getElementById('new-recipe-btn');
 
 /* ~~~~~ EVENT LISTENERS ~~~~~ */ 
 foodButton.addEventListener('click', displayRandomFood);
@@ -91,6 +91,16 @@ function showNewRecipeForm() {
     newRecipeForm.classList.toggle('hidden');
 };
 
+function pushNewFood() {
+    if(newRecipeType.value === 'Side') {
+        sides.push(newRecipeName.value);
+    } else if(newRecipeType.value === 'Main Dish') {
+        mains.push(newRecipeName.value);
+    } else if(newRecipeType.value === 'Dessert') {
+        desserts.push(newRecipeName.value);
+    };
+};
+
 function displayRandomFood() {
     for(var i = 0; i < foodChoice.length; i++) {
         if(foodChoice[i].checked && foodChoice[i].id === 'entire-meal') {
@@ -101,16 +111,6 @@ function displayRandomFood() {
             mealType = eval(foodChoice[i].id)
             foodName.innerText = mealType[getRandomIndex(mealType)]+'!'
         };
-    };
-};
-
-function pushNewFood() {
-    if(newRecipeType.value === 'Side') {
-        sides.push(newRecipeName.value);
-    } else if(newRecipeType.value === 'Main Dish') {
-        mains.push(newRecipeName.value);
-    } else if(newRecipeType.value === 'Dessert') {
-        desserts.push(newRecipeName.value);
     };
 };
 
